@@ -1,11 +1,64 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
+import useAuth from '../auth/useAuth';
+import axios from 'axios';
 
 import Header from '../components/Header';
 import Banner from '../components/partials/Banner';
 import Footer from '../components/Footer'
 
 function SignIn() {
+  let navigate = useNavigate();
+  const { handleLogin } = useAuth();
+
+	const [msg, setMsg] = React.useState({
+		text: '',
+		success: false,
+	});
+
+	const [loginData, setLoginData] = React.useState({
+		email: '',
+		password: '',
+	});
+
+	function handleFormChange(event) {
+		const { name, value, type, checked } = event.target;
+		setLoginData(prevloginData => ({
+			...prevloginData,
+			[name]: type === 'checkbox' ? checked : value,
+		}));
+	}
+
+	const handleSubmit = async event => {
+		event.preventDefault();
+		try {
+			const response = await axios({
+				method: 'POST',
+				data: {
+					email: loginData.email,
+					password: loginData.password,
+				},
+				url: '/login',
+				withCredentials: true,
+			});
+			console.log('From Server:', response.data.user);
+			setMsg({
+				text: response.data.message.msgBody,
+				success: true,
+			});
+			handleLogin(response.data.user);
+			setTimeout(() => navigate('/dashboard'), 1500)
+		} catch (err) {
+			console.log(err);
+			setMsg({
+				text: err.response.data.message.msgBody,
+				success: false,
+			});
+		}
+	};
+
+
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
 
@@ -20,29 +73,49 @@ function SignIn() {
             <div className="pt-32 pb-12 md:pt-40 md:pb-20">
 
               {/* Page header */}
-              <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
+              <div className="max-w-3xl sm:w-2/5 mx-auto text-center pb-12 md:pb-20">
                 <h1 className="h1">Welcome back. We exist to make entrepreneurism easier.</h1>
               </div>
 
               {/* Form */}
-              <div className="max-w-sm mx-auto md:w-2/5">
-                <form>
+              <div className="max-w-sm mx-auto md:w-1/4">
+                <form onSubmit={handleSubmit}>
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="email">Email</label>
-                      <input id="email" type="email" className="form-input w-full text-gray-800" placeholder="Enter your email address" required />
+                      <input 
+                        name="email" 
+                        type="email" 
+                        className="form-input w-full text-gray-800" 
+                        placeholder="Enter your email address"
+                        onChange={handleFormChange} 
+                        required 
+                      />
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <div className="flex justify-between">
                         <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="password">Password</label>
-                        <Link to="/reset-password" className="text-sm font-medium text-blue-600 hover:underline">Having trouble signing in?</Link>
+                        {/* Insert forgot password link below */}
+                        {/* <Link to="/reset-password" className="text-sm font-medium text-blue-600 hover:underline">Having trouble signing in?</Link> */}
                       </div>
-                      <input id="password" type="password" className="form-input w-full text-gray-800" placeholder="Enter your password" required />
+                      <input 
+                        name="password" 
+                        type="password" 
+                        className="form-input w-full text-gray-800" 
+                        placeholder="Enter your password"
+                        onChange={handleFormChange} 
+                        required 
+                      />
+                    <div className={msg.success ? 'text-green-400 text-center font-semibold -mb-2 mt-2': 'text-red-400 font-semibold text-center -mb-2 mt-2'}>
+								      {msg ? msg.text : ''}
+							      </div>
                     </div>
+                    
                   </div>
-                  <div className="flex flex-wrap -mx-3 mb-4">
+                  {/* To save state that user is logged in */}
+                  {/* <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
                       <div className="flex justify-between">
                         <label className="flex items-center">
@@ -51,19 +124,27 @@ function SignIn() {
                         </label>
                       </div>
                     </div>
-                  </div>
+                  </div> */}
                   <div className="flex flex-wrap -mx-3 mt-6">
                     <div className="w-full px-3">
-                      <button className="btn text-white bg-blue-600 hover:bg-blue-700 w-full">Sign in</button>
+                      <button className="btn text-black bg-sky-400 hover:bg-sky-700 w-full">Sign in</button>
                     </div>
                   </div>
                 </form>
-                <div className="flex items-center my-6">
+                {/* OR between signup / auth signup */}
+
+
+                {/* <div className="flex items-center my-6">
                   <div className="border-t border-gray-300 flex-grow mr-3" aria-hidden="true"></div>
                   <div className="text-gray-600 italic">Or</div>
                   <div className="border-t border-gray-300 flex-grow ml-3" aria-hidden="true"></div>
-                </div>
-                <form>
+                </div> */}
+
+
+                {/* GOOGLE / GITHUB Auth */}
+
+
+                {/* <form>
                   <div className="flex flex-wrap -mx-3 mb-3">
                     <div className="w-full px-3">
                       <button className="btn px-0 text-white bg-gray-900 hover:bg-gray-800 w-full relative flex items-center">
@@ -84,9 +165,9 @@ function SignIn() {
                       </button>
                     </div>
                   </div>
-                </form>
+                </form> */}
                 <div className="text-gray-600 text-center mt-6">
-                  Don’t you have an account? <Link to="/signup" className="text-blue-600 hover:underline transition duration-150 ease-in-out">Sign up</Link>
+                  Don’t you have an account? <Link to="/signup" className="text-blue-600 hover:underline hover:text-sky-800 transition duration-150 ease-in-out">Sign up</Link>
                 </div>
               </div>
 
@@ -96,7 +177,7 @@ function SignIn() {
 
       </main>
 
-      {/* <Banner /> */}
+
       <Footer />
     </div>
   );
