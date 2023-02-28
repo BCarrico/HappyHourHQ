@@ -12,6 +12,9 @@ import {
   XMarkIcon,
 } from '@heroicons/react/24/outline'
 import { Link, useLocation } from 'react-router-dom';
+import React, { useState } from 'react';
+
+
 
 const solutions = [
   {
@@ -33,13 +36,26 @@ export default function Header() {
 	const { authed, handleLogout } = useAuth();
   const location = useLocation();
   console.log(location.pathname, (location.pathname == '/feed'))
+
+  const [top, setTop] = useState(true);
+
+// detect whether user has scrolled the page down by 10px 
+React.useEffect(() => {
+  const scrollHandler = () => {
+    window.pageYOffset > 10 ? setTop(false) : setTop(true)
+  };
+  window.addEventListener('scroll', scrollHandler);
+  return () => window.removeEventListener('scroll', scrollHandler);
+}, [top]);  
+
+
 	return (
 		<div>
 {/* HEADER WITHOUT AUTHENTICATION */}
 
 					{!authed && (
-            <div className="relative bg-gray-800">
-						<Popover className="relative z-20 bg-gray-800">
+            <div className="relative">
+						<Popover className={`z-20 w-full bg-gray-800 bg-opacity-95 ${!top && 'bg-gray-800 backdrop-blur-sm shadow-xl'}` }>
               <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
                   <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -61,18 +77,18 @@ export default function Header() {
                   </div>
                   <Popover.Group as="nav" className="hidden space-x-10 md:flex">
                     
-                    <Link to="/feed" className="text-base font-medium text-gray-200 hover:text-gray-900">
+                    <Link to="/feed" className="text-lg font-medium text-gray-200 hover:text-gray-900">
                       Happy Hours
                     </Link>
                     
                   </Popover.Group>
                   <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-                    <Link to="/login"className="whitespace-nowrap text-base font-medium text-white hover:text-gray-900">
+                    <Link to="/signin"className="whitespace-nowrap text-lg font-medium text-white hover:text-gray-900">
                       Sign in
                     </Link>
                     <Link
                       to="/signup"
-                      className="ml-8 inline-flex items-center justify-center whitespace-nowrap bg-green-400 px-4 py-2 font-medium text-gray-700 shadow-sm hover:bg-gray-200"
+                      className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md bg-green-400 px-4 py-2 font-medium text-gray-700 shadow-sm hover:bg-gray-200"
                     >
                       Sign up
                     </Link>
@@ -225,9 +241,9 @@ export default function Header() {
                                     {solutions.map((item) => (
                                       <a
                                         key={item.name}
-                                        className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-600"
+                                        className="-m-3 flex items-center rounded-md p-3 hover:bg-gray-500"
                                       >
-                                        <item.icon className="h-6 w-6 flex-shrink-0 text-indigo-600" aria-hidden="true" />
+                                        <item.icon className="h-6 w-6 flex-shrink-0 text-sky-400" aria-hidden="true" />
                                         <Link to={item.href}><span className="ml-3 text-base font-medium text-gray-200">{item.name}</span></Link>
                                       </a>
                                     ))}

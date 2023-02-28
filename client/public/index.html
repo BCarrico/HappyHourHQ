@@ -10,9 +10,15 @@
 		/>
 		<meta name="google-site-verification" content="fXm-w-bff60jeELoP20dURk0V4-jPM-8vHJb3nYIOV4" />
 		<script
-      src="https://widget.cloudinary.com/v2.0/global/all.js"
-      type="text/javascript"
-    ></script>
+      		src="https://widget.cloudinary.com/v2.0/global/all.js"
+      		type="text/javascript"
+    	>
+        	if (localStorage.getItem('sidebar-expanded') == 'true') {
+           		document.querySelector('body').classList.add('sidebar-expanded');
+        	} else {
+            	document.querySelector('body').classList.remove('sidebar-expanded');
+        	}
+		</script>
 	
 		<!-- Favicon -->
 		<link
