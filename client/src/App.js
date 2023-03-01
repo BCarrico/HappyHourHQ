@@ -16,7 +16,7 @@ import Feed from './pages/Feed';
 import HHPost from './pages/HHPost'
 import Home2 from './pages/Home2'
 import SignIn2 from './pages/SignIn2';
-
+import SignUp2 from './pages/SignUp2'
 
 
 
@@ -55,7 +55,7 @@ const App = () => {
 			<Route
 				path='/signup'
 				element={
-					<SignUp />
+					<SignUp2 />
 				}
 			/>
 			<Route

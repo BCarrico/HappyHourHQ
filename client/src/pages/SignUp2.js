@@ -1,63 +1,67 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../auth/useAuth';
 import axios from 'axios';
-
 import Header from '../components/Header';
 import Banner from '../components/partials/Banner';
 import Footer from '../components/Footer'
 
-function SignIn() {
+function SignUp() {
+
   let navigate = useNavigate();
-  const { handleLogin } = useAuth();
+	
 
 	const [msg, setMsg] = React.useState({
 		text: '',
 		success: false,
 	});
 
-	const [loginData, setLoginData] = React.useState({
+	const [signUpData, setSignUpData] = React.useState({
+		userName: '',
 		email: '',
 		password: '',
+		confirmPassword: '',
 	});
 
 	function handleFormChange(event) {
 		const { name, value, type, checked } = event.target;
-		setLoginData(prevloginData => ({
-			...prevloginData,
+		setSignUpData(prevSignUpData => ({
+			...prevSignUpData,
 			[name]: type === 'checkbox' ? checked : value,
 		}));
 	}
 
 	const handleSubmit = async event => {
 		event.preventDefault();
+		console.log(signUpData, 'Sign Up Attempt Sent');
 		try {
 			const response = await axios({
 				method: 'POST',
 				data: {
-					email: loginData.email,
-					password: loginData.password,
+					userName: signUpData.userName,
+					email: signUpData.email,
+					password: signUpData.password,
+					confirmPassword: signUpData.confirmPassword,
+					
 				},
-				url: '/login',
+				url: '/signup',
 				withCredentials: true,
 			});
-			console.log('From Server:', response.data.user);
+			console.log('From Server:', response);
 			setMsg({
 				text: response.data.message.msgBody,
 				success: true,
 			});
-			handleLogin(response.data.user);
-			setTimeout(() => navigate('/dashboard'), 1500)
+			
+			setTimeout(() => navigate('/login'), 1500)
 		} catch (err) {
-			console.log(err);
 			setMsg({
 				text: err.response.data.message.msgBody,
 				success: false,
 			});
+			console.log(err.response);
 		}
 	};
-
 
   return (
     <div className="flex flex-col min-h-screen overflow-hidden">
@@ -74,77 +78,89 @@ function SignIn() {
 
               {/* Page header */}
               <div className="max-w-3xl sm:w-4/5 xl:w-1/2 mx-auto text-center pb-12 md:pb-20">
-                <h1 className="h1">Welcome back. We exist to make entrepreneurism easier.</h1>
+                <h1 className="h1">Welcome. We exist to make entrepreneurism easier.</h1>
               </div>
 
               {/* Form */}
-              <div className="max-w-sm mx-auto sm:w-2/3 lg:w-1/3">
+              <div className="max-w-sm sm:w-2/3 lg:w-1/3 mx-auto">
                 <form onSubmit={handleSubmit}>
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
-                      <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="email">Email</label>
+                      <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="name">Name <span className="text-red-600">*</span></label>
                       <input 
-                        name="email" 
-                        type="email" 
+                        name="Username" 
+                        type="text" 
                         className="form-input w-full text-gray-800" 
-                        placeholder="Enter your email address"
-                        onChange={handleFormChange} 
+                        placeholder="Enter your name" 
+                        onChange={handleFormChange}
                         required 
                       />
                     </div>
                   </div>
                   <div className="flex flex-wrap -mx-3 mb-4">
                     <div className="w-full px-3">
-                      <div className="flex justify-between">
-                        <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="password">Password</label>
-                        {/* Insert forgot password link below */}
-                        {/* <Link to="/reset-password" className="text-sm font-medium text-blue-600 hover:underline">Having trouble signing in?</Link> */}
-                      </div>
+                      <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="email">Email <span className="text-red-600">*</span></label>
                       <input 
-                        name="password" 
+                        id="email" 
+                        type="email" 
+                        className="form-input w-full text-gray-800" 
+                        placeholder="Enter your email address" 
+                        onChange={handleFormChange}
+                        required 
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full px-3">
+                      <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="password">Password <span className="text-red-600">*</span></label>
+                      <input 
+                        id="password" 
+                        type="password" 
+                        className="form-input w-full text-gray-800" 
+                        placeholder="Enter your password" 
+                        onChange={handleFormChange}
+                        required 
+                      />
+                    </div>
+                  </div>
+                  <div className="flex flex-wrap -mx-3 mb-4">
+                    <div className="w-full px-3">
+                      <label className="block text-gray-800 text-sm font-medium mb-1" htmlFor="password">Confirm Password <span className="text-red-600">*</span></label>
+                      <input 
+                        id="password" 
                         type="password" 
                         className="form-input w-full text-gray-800" 
                         placeholder="Enter your password"
                         onChange={handleFormChange} 
                         required 
                       />
-                    <div className={msg.success ? 'text-green-400 text-center font-semibold -mb-2 mt-2': 'text-red-400 font-semibold text-center -mb-2 mt-2'}>
+                    </div>
+                  </div>
+                  <div className={msg.success ? 'text-green-400 text-center font-semibold -mb-2 mt-2': 'text-red-400 font-semibold text-center -mb-2 mt-2'}>
 								      {msg ? msg.text : ''}
 							      </div>
-                    </div>
-                    
-                  </div>
-                  {/* To save state that user is logged in */}
-                  {/* <div className="flex flex-wrap -mx-3 mb-4">
-                    <div className="w-full px-3">
-                      <div className="flex justify-between">
-                        <label className="flex items-center">
-                          <input type="checkbox" className="form-checkbox" />
-                          <span className="text-gray-600 ml-2">Keep me signed in</span>
-                        </label>
-                      </div>
-                    </div>
-                  </div> */}
                   <div className="flex flex-wrap -mx-3 mt-6">
                     <div className="w-full px-3">
-                      <button className="btn text-black bg-sky-400 hover:bg-sky-700 w-full">Sign in</button>
+                      <button className="btn text-black bg-sky-400 hover:bg-sky-700 w-full">Sign up</button>
                     </div>
                   </div>
-                </form>
-                {/* OR between signup / auth signup */}
+                  
+                  {/* TERMS AND CONDITIONS + PRIVACY POLICY NEEDED
+                  
+
+                  {/* <div className="text-sm text-gray-500 text-center mt-3">
+                    By creating an account, you agree to the <a className="underline" href="#0">terms & conditions</a>, and our <a className="underline" href="#0">privacy policy</a>.
+                                </div> */}
+                </form>               
+                {/* OR LINE + ADDITIONAL AUTH */}
 
 
                 {/* <div className="flex items-center my-6">
                   <div className="border-t border-gray-300 flex-grow mr-3" aria-hidden="true"></div>
                   <div className="text-gray-600 italic">Or</div>
                   <div className="border-t border-gray-300 flex-grow ml-3" aria-hidden="true"></div>
-                </div> */}
-
-
-                {/* GOOGLE / GITHUB Auth */}
-
-
-                {/* <form>
+                </div>
+                <form>
                   <div className="flex flex-wrap -mx-3 mb-3">
                     <div className="w-full px-3">
                       <button className="btn px-0 text-white bg-gray-900 hover:bg-gray-800 w-full relative flex items-center">
@@ -167,7 +183,7 @@ function SignIn() {
                   </div>
                 </form> */}
                 <div className="text-gray-600 text-center mt-6">
-                  Don’t have an account? <Link to="/signup" className="text-blue-600 hover:underline transition duration-150 ease-in-out">Sign up</Link>
+                  Already using Happy Hour HQ? <Link to="/signin" className="text-blue-600 hover:underline transition duration-150 ease-in-out">Sign in</Link>
                 </div>
               </div>
 
@@ -178,9 +194,9 @@ function SignIn() {
       </main>
 
 
-      <Footer />
+    <Footer />
     </div>
   );
 }
 
-export default SignIn;
+export default SignUp;
