@@ -9,14 +9,14 @@ import AOS from 'aos';
 import Home from './pages/Home';
 import NoMatch from './pages/NoMatch';
 import Dashboard from './pages/Dashboard';
-import SignUp from './pages/SignUpOld';
+// import SignUp from './pages/SignUpOld';
 import Login from './pages/LoginOld';
 import AddHappyHour from './pages/AddHappyHour';
 import Feed from './pages/Feed';
 import HHPost from './pages/HHPost'
 import Home2 from './pages/Home2'
 import SignIn from './pages/SignIn';
-import SignUp2 from './pages/SignUp'
+import SignUp from './pages/SignUp'
 
 
 

@@ -78,7 +78,7 @@ function SignUp() {
 
               {/* Page header */}
               <div className="max-w-3xl sm:w-4/5 xl:w-1/2 mx-auto text-center pb-12 md:pb-20">
-                <h1 className="h1">Welcome. We exist to make entrepreneurism easier.</h1>
+                <h1 className="h1">Welcome to Happy Hour HQ!</h1>
               </div>
 
               {/* Form */}

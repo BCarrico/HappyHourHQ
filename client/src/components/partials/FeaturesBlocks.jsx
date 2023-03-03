@@ -5,16 +5,16 @@ function FeaturesBlocks() {
     <section className="relative">
 
       {/* Section background (needs .relative class on parent and next sibling elements) */}
-      <div className="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 bg-gray-900 pointer-events-none" aria-hidden="true"></div>
-      <div className="absolute left-0 right-0 bottom-0 m-auto w-px p-px h-20 bg-gray-200 transform translate-y-1/2"></div>
+      <div className="absolute inset-0 top-1/2 md:mt-24 lg:mt-0 pointer-events-none" aria-hidden="true"></div>
+      
 
       <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
         <div className="py-12 md:py-20">
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-20">
-            <h2 className="h2 mb-4">How Simple works</h2>
-            <p className="text-xl text-gray-600">Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur excepteur sint occaecat cupidatat.</p>
+            <h2 className="h2 mb-4">Not sure where to go for happy hour? Let us help you find one!</h2>
+            <p className="text-xl text-gray-600"></p>
           </div>
 
           {/* Items */}
@@ -119,6 +119,16 @@ function FeaturesBlocks() {
 
           </div>
 
+        </div>
+      </div>
+      <div className="relative max-w-6xl mx-auto px-4 sm:px-6">
+        <div className="pt-12">
+
+          {/* Section header */}
+          <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-8">
+            <h1 className="h2 mb-4">Find Your Next Happy Hour Spot</h1>
+            <a className="btn text-white bg-sky-600 hover:bg-sky-900 w-2/5 sm:w-auto sm:mb-0" href="/feed">Explore Here</a>
+          </div>
         </div>
       </div>
     </section>

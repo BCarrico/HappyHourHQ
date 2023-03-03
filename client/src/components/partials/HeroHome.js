@@ -43,7 +43,7 @@ function getHeroImage(width){
 let width = useCurrentWidth()
   return (
     
-    <div className='relative z-[-10]'>
+    <div className='relative'>
       <div className="w-full min-h-[50vh] bg-cover bg-no-repeat p-0 flex flex-col flex-grow" style={{backgroundImage: `url(${getHeroImage(width)})`}}>
         <div className='absolute inset-0 bg-gray-800 bg-opacity-50'></div>
         {/* Hero content */}
@@ -53,7 +53,7 @@ let width = useCurrentWidth()
                       <p className="text-xl text-gray-200 mb-8" data-aos="zoom-y-out" data-aos-delay="150">One stop for discovering the best deals and times for happy hours near you.</p>
                       <div className="max-w-xs mx-auto sm:max-w-none sm:flex sm:justify-center" data-aos="zoom-y-out" data-aos-delay="300">
                         <div>
-                          <a className="btn text-white bg-sky-600 hover:bg-sky-900 w-2/5 mb-4 sm:w-auto sm:mb-0" href="">Explore Here</a>
+                          <a className="btn text-white bg-sky-600 hover:bg-sky-900 w-2/5 mb-4 sm:w-auto sm:mb-0" href="/feed">Explore Here</a>
                         </div>
                         <div>
                           <a className="btn text-white bg-gray-900 hover:bg-gray-800 w-2/5 sm:w-auto sm:ml-4" href="/signup">Sign Up</a>
