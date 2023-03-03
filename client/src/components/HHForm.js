@@ -1,12 +1,12 @@
 import React from "react"
 import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
-import useAuth from '../auth/useAuth';
+
 import 'react-phone-number-input/style.css';
 import PhoneInput from 'react-phone-number-input'
 
 export default function HHForm() {
-    const { user } = useAuth();
+
     let navigate = useNavigate();
 
     const [msg, setMsg] = React.useState({
