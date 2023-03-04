@@ -126,7 +126,7 @@ function FeaturesBlocks() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-8">
-            <h1 className="h2 mb-4">Find Your Next Happy Hour Spot</h1>
+            <h1 className="h2">Find Your Next Happy Hour Spot</h1>
             <a className="btn text-white bg-sky-600 hover:bg-sky-900 w-2/5 sm:w-auto sm:mb-0" href="/feed">Explore Here</a>
           </div>
         </div>
