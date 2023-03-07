@@ -7,7 +7,7 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { faStar as faStarActive, faRotateRight, faFilter, faArrowUp, faArrowDown, faMagnifyingGlass} from '@fortawesome/free-solid-svg-icons'
 import { faStar as faStarInactive } from '@fortawesome/free-regular-svg-icons'
 import { Popover } from '@headlessui/react'
-
+import HeroImage from '../images/Hero800x800.png'
 import HHType from "./HHType";
 
 
@@ -633,9 +633,73 @@ export default function HHFeedText(){
 
             </div>
             <div className="justify-self-center flex-grow">
+
+{/* TEST TEST TEST */}
+{dataHH.map((item, index) => 
+<div className="min-w-full flex items-center p-5 lg:px-10 overflow-hidden relative">
+    <div className="w-full max-w-6xl rounded bg-white shadow-xl p-10 lg:p-20 mx-auto text-gray-800 relative md:text-left">
+        <div className="md:flex items-center -mx-10">
+            <div className="flex w-full md:w-1/2 px-10 mb-10 md:mb-0 ">
+                <div className=" h-[275px] w-[275px]  sm:h-[400px] sm:w-[400px]">
+                    {item.images.length > 0 ? <div className="w-full  z-10">
+                        <img src={HeroImage} className="border-4 border-yellow-200"/>
+                    </div>  : <div className="flex items-center justify-center sm:p-3 sm:mx-1 border-black border rounded">No Photo Yet</div>}                           
+                </div>
+            </div>
+            <div className="w-full text-xl md:w-1/2 px-10">
+                <div className="mb-10">
+                    <div className="flex items-center"><Link to ={`/HHPost/${item._id}`}><h1 className="font-bold uppercase text-3xl">{item.name}</h1></Link><span className="pl-2">- {item.city}</span></div>
+                    <div className="star-rating flex items-center">
+                              {item.ovRatingAvg != null ? <div>{String(item.ovRatingAvg).length === 1 ? <div className="pr-1">{item.ovRatingAvg}.0</div> : <div className="pr-1">{item.ovRatingAvg}</div>}</div> : <div className="hidden"></div>}
+                              {[...Array(4)].map((star, index) => {
+                              index += 1;
+                              return (
+                                 <div
+                                 key={index}
+                               className={item.ovRatingAvg <= index-1 || item.ovRatingAvg == undefined ? "text-gray-300" : "text-green-400"}
+                              >
+                            <span className="star text-xl">&#9733;</span>
+                             </div> 
+                         );
+                         })}
+                         <span className="text-sm text-sky-400 pl-1">({item.ratedBy.length})</span> 
+                    </div>
+                    <div>{handleTime(item.startTime)} - {handleTime(item.endTime)}</div>
+                            <div className="flex text-lg space-x-1">
+                                {item.monday && <div>M</div>}
+                                {item.tuesday && <div>T</div>}
+                                {item.wednesday && <div>W</div>}
+                                {item.thursday && <div>Th</div>}
+                                {item.friday && <div>F</div>}
+                                {item.saturday && <div>Sa</div>}
+                                {item.sunday && <div>Su</div>}
+                            </div>
+                            <HHType drinks={item.drinks} food={item.food}/>
+                </div>
+                <div>
+                <div className="flex gap-x-2">
+                    
+                    <button className="btn text-white bg-sky-600 hover:bg-sky-900 w-2/5 mb-4 sm:w-auto sm:mb-0">Website & Menu</button>
+                    {authed ? <div>{
+                            userData.favoritePosts.includes(item._id) ?
+                            <div><button action={`${item._id}`} type="submit" className="btn text-white bg-sky-600 hover:bg-sky-900 w-2/5 mb-4 sm:w-auto sm:mb-0" onClick={handleRmFavorite}>Remove Favorites <FontAwesomeIcon icon={faStarActive} className="text-sky-400"/></button></div>
+                             : 
+                            <div><button action={`${item._id}`} type="submit" className="btn text-white bg-sky-600 hover:bg-sky-900 w-2/5 mb-4 sm:w-auto sm:mb-0" onClick={handleAddToFavorite}>Add To Favorites <FontAwesomeIcon icon={faStarInactive} className="text-sky-400"/></button></div>
+                            }
+                        </div> : <div><Link to="/login">Add To Favorites <FontAwesomeIcon icon={faStarInactive}/></Link></div>}
+                        
+
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+)}
+{/* END TEST TEST TEST */}
             {dataHH.map((item, index) => 
             
-            <div className="flex justify-center text-gray-50 py-2" >
+            <div className="z-[-10] flex justify-center text-gray-50 py-2" >
                 <div className="flex sm:justify-around bg-gray-700 flex-wrap border-black border rounded mx-4 sm:w-4/6 my-2 space-y-2 " key={index}>
                     <div className="flex justify-between sm:w-1/4 p-1.5 sm:p-1 space-x-0.5 flex-grow">
                     <div className="flex-col flex justify-between sm:pl-2 sm:mx-1 w-1/2 sm:w-1/3 sm:min-h-min">
