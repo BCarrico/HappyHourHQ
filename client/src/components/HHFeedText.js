@@ -706,13 +706,10 @@ export default function HHFeedText(){
             <div className="z-[-10] flex justify-center py-2" >
                 <div className="flex justify-center sm:justify-around bg-white shadow-xl flex-wrap rounded mx-4 sm:w-[60%] my-2 px-4 py-6 space-y-2 " key={index}>
    
-                    <Link to ={`/HHPost/${item._id}`} className="sm:hidden"><span className="text-2xl font-bold uppercase sm:pb-2">{item.name}</span></Link>
+                    <Link to ={`/HHPost/${item._id}`}><span className="text-2xl font-bold uppercase sm:pb-2">{item.name}</span></Link>
                     <div className="flex justify-between sm:w-1/4 p-1.5 sm:p-1 space-x-0.5 flex-grow">
                     <div className="flex-col flex justify-between sm:pl-2 sm:mx-1 w-1/2 sm:min-h-min">
                         <div className="sm:space-y-2">
-                            <Link to ={`/HHPost/${item._id}`} className="hidden sm:flex"><span className="text-xl sm:text-3xl font-bold uppercase -mb-2">{item.name}</span></Link>
-                            <div className="text-md hidden sm:flex">{item.city}, {item.state}</div> 
-                            
                             <div className="star-rating flex items-center text-xl">
                                 {item.ovRatingAvg != null ? <div>{String(item.ovRatingAvg).length === 1 ? <div className="pr-1">{item.ovRatingAvg}.0</div> : <div className="pr-1">{item.ovRatingAvg}</div>}</div> : <div className="hidden"></div>}
                                 {[...Array(4)].map((star, index) => {
@@ -745,32 +742,9 @@ export default function HHFeedText(){
                         <div className="text-lg sm:hidden">{item.city}, {item.state}</div>
                         <div className="text-lg">{formatPhoneNumber(item.phone)}</div>
                         <div className="flex justify-between items-center">
-                        <button className="hidden sm:flex btn text-white bg-sky-600 hover:bg-sky-900 w-2/5 sm:w-auto sm:mb-0">Website & Menu</button>
-                        {authed ? <div className="hidden sm:flex">{
-                            userData.favoritePosts.includes(item._id) ?
-                            <div><button action={`${item._id}`} type="submit" onClick={handleRmFavorite}>Remove Favorites <FontAwesomeIcon icon={faStarActive} className="text-sky-400"/></button></div>
-                             : 
-                            <div><button action={`${item._id}`} type="submit" onClick={handleAddToFavorite}>Add To Favorites <FontAwesomeIcon icon={faStarInactive} className="text-sky-400"/></button></div>
-                            }
-                        </div> : <div className="hidden sm:flex"><Link to="/login">Add To Favorites <FontAwesomeIcon icon={faStarInactive}/></Link></div>} 
                             </div>
                         </div>
                     </div>
-                    {/* NON-MOBILE CONTACT INFO VIEW */}
-                    {/* <div className="sm:flex flex-col p-0.5 w-1/4 sm:w-1/4 min-h-min justify-between hidden">        
-                        <div className="flex flex-col">
-                            
-                            <span className="text-lg pb-4">Contact Info:</span>
-                            <div className="flex flex-col">{item.address}, <br />{item.city} {item.state} {item.zipcode}</div>
-                            <div>{formatPhoneNumber(item.phone)}</div>
-
-                        </div>
-                        <div className="flex">
-                            <div className="px-2 py-1 text-white uppercase bg-transparent border-2 border-sky-400 dark:text-white hover:bg-gray-800 hover:text-white text-md"><a href={item.website}>Website & Menu</a></div>
-                        </div>
-                    </div>  */}
-
-                    
                     {/* IMAGE */}
                     {console.log(item.images)}
                     <div className=" pt-2">
@@ -782,11 +756,10 @@ export default function HHFeedText(){
                   
                     {/* MOBILE CONTACT INFO VIEW */}
                     <div className="sm:hidden flex justify-around p-1.5 space-x-0.5 flex-grow">        
-                        
-                            
+
                             {/* <span>Contact Info:</span> */}
                                 <button className="btn text-white bg-sky-600 hover:bg-sky-900 w-2/5 sm:w-auto sm:mb-0">Website</button>
-                            {authed ? <div className="justify-center">{
+                            {authed ? <div className="flex items-center justify-center">{
                             userData.favoritePosts.includes(item._id) ?
                             <div><button action={`${item._id}`} type="submit" onClick={handleRmFavorite}>Remove Favorites <FontAwesomeIcon icon={faStarActive} className="text-sky-400"/></button></div>
                              : 
