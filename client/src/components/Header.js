@@ -54,8 +54,8 @@ React.useEffect(() => {
 {/* HEADER WITHOUT AUTHENTICATION */}
 
 					{!authed && (
-            <div className="relative">
-						<Popover className={`z-20 w-full bg-gray-800 bg-opacity-95 ${!top && 'bg-gray-800 backdrop-blur-sm shadow-xl'}` }>
+            <div className="relative z-20">
+						<Popover className={`w-full bg-gray-800 bg-opacity-95 ${!top && 'bg-gray-800 backdrop-blur-sm shadow-xl'}` }>
               <div className="mx-auto max-w-7xl px-4 sm:px-6">
                 <div className="flex items-center justify-between py-6 md:justify-start md:space-x-10">
                   <div className="flex justify-start lg:w-0 lg:flex-1">
