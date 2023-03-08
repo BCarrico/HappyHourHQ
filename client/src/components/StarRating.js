@@ -3,7 +3,7 @@ import React from "react";
 
 const StarRating = (props) => {
     return (
-  <div className="star-rating flex items-center space-x-1">
+  <div className="star-rating flex text-black items-center space-x-1">
     <span className={props.nameStyle == undefined ? "text-lg" : props.nameStyle}>{props.name}</span>
       
         {[...Array(4)].map((star, index) => {

@@ -53,6 +53,14 @@ const App = () => {
 				}
 			/>
 			<Route
+				path='/dashboard'
+				element={
+					<RequireAuth>
+						<Dashboard />
+					</RequireAuth>
+				}
+			/>
+			<Route
 				path='/signup'
 				element={
 					<SignUp />

@@ -295,7 +295,7 @@ export default function HHFeedText(){
 
                             <form className="flex flex-col sticky h-screen top-0">
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="drinks" className="text-white pr-2">Drinks</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="drinks"
@@ -304,9 +304,10 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.drinks}
                                     />
+                                    <label htmlFor="drinks" className="text-white pr-2">Drinks</label>
                                 </div>
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="food" className="text-white">Food</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="food"
@@ -315,9 +316,10 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.food}
                                     />
+                                    <label htmlFor="food" className="text-white">Food</label>
                                 </div>
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="rating1" className="text-white">Rating 1+</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="rating1"
@@ -326,9 +328,10 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.rating1}
                                     />
+                                    <label htmlFor="rating1" className="text-white">Rating 1+</label>
                                 </div>
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="rating2" className="text-white">Rating 2+</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="rating2"
@@ -337,9 +340,10 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.rating2}
                                     />
+                                    <label htmlFor="rating2" className="text-white">Rating 2+</label>
                                 </div>
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="rating3" className="text-white">Rating 3+</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="rating3"
@@ -348,9 +352,10 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.rating3}
                                     />
+                                    <label htmlFor="rating3" className="text-white">Rating 3+</label>
                                 </div>
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="rating4" className="text-white">Rating 4</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="rating4"
@@ -359,9 +364,10 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.rating4}
                                     />
+                                    <label htmlFor="rating4" className="text-white">Rating 4</label>
                                 </div>
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="M" className="text-white">Monday</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="mon"
@@ -370,9 +376,10 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.mon}
                                     />
+                                    <label htmlFor="M" className="text-white">Monday</label>
                                 </div>
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="T" className="text-white">Tuesday</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="tue"
@@ -381,9 +388,10 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.tue}
                                     />
+                                    <label htmlFor="T" className="text-white">Tuesday</label>
                                 </div>
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="W" className="text-white">Wednesday</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="wed"
@@ -392,9 +400,10 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.wed}
                                     />
+                                    <label htmlFor="W" className="text-white">Wednesday</label>
                                 </div>
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="Th" className="text-white">Thursday</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="thur"
@@ -403,9 +412,10 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.thur}
                                     />
+                                    <label htmlFor="Th" className="text-white">Thursday</label>
                                 </div>
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="Fr" className="text-white">Friday</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="fri"
@@ -414,9 +424,10 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.fri}
                                     />
+                                    <label htmlFor="Fr" className="text-white">Friday</label>
                                 </div>
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="Sat" className="text-white">Saturday</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="sat"
@@ -425,9 +436,10 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.sat}
                                     />
+                                    <label htmlFor="Sat" className="text-white">Saturday</label>
                                 </div>
                                 <div className="flex items-center gap-x-1">
-                                    <label htmlFor="Sun" className="text-white">Sunday</label>
+                                    
                                     <input
                                         type="checkbox"
                                         id="sun"
@@ -436,6 +448,7 @@ export default function HHFeedText(){
                                         onChange={handleFilterChange}
                                         checked={filterData.sun}
                                     />
+                                    <label htmlFor="Sun" className="text-white">Sunday</label>
                                 </div>
                                 <div className="flex">
                                     <input
@@ -470,7 +483,7 @@ export default function HHFeedText(){
                 <form className="flex flex-col sticky h-screen top-0">
                     <h2 className="text-white text-lg pb-2">Filters:</h2>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="drinks" className="text-white pr-2">Drinks</label>
+                        
                         <input
                             type="checkbox"
                             id="drinks"
@@ -479,9 +492,10 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.drinks}
                         />
+                        <label htmlFor="drinks" className="text-white pr-2">Drinks</label>
                     </div>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="food" className="text-white">Food</label>
+                        
                         <input
                             type="checkbox"
                             id="food"
@@ -490,9 +504,10 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.food}
                         />
+                        <label htmlFor="food" className="text-white">Food</label>
                     </div>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="rating1" className="text-white">Rating 1+</label>
+                        
                         <input
                             type="checkbox"
                             id="rating1"
@@ -501,9 +516,10 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.rating1}
                         />
+                        <label htmlFor="rating1" className="text-white">Rating 1+</label>
                     </div>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="rating2" className="text-white">Rating 2+</label>
+                        
                         <input
                             type="checkbox"
                             id="rating2"
@@ -512,9 +528,10 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.rating2}
                         />
+                        <label htmlFor="rating2" className="text-white">Rating 2+</label>
                     </div>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="rating3" className="text-white">Rating 3+</label>
+                        
                         <input
                             type="checkbox"
                             id="rating3"
@@ -523,9 +540,10 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.rating3}
                         />
+                        <label htmlFor="rating3" className="text-white">Rating 3+</label>
                     </div>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="rating4" className="text-white">Rating 4</label>
+                        
                         <input
                             type="checkbox"
                             id="rating4"
@@ -534,9 +552,10 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.rating4}
                         />
+                        <label htmlFor="rating4" className="text-white">Rating 4</label>
                     </div>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="M" className="text-white">Monday</label>
+                        
                         <input
                             type="checkbox"
                             id="mon"
@@ -545,9 +564,10 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.mon}
                         />
+                        <label htmlFor="M" className="text-white">Monday</label>
                     </div>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="T" className="text-white">Tuesday</label>
+                        
                         <input
                             type="checkbox"
                             id="tue"
@@ -556,9 +576,10 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.tue}
                         />
+                        <label htmlFor="T" className="text-white">Tuesday</label>
                     </div>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="W" className="text-white">Wednesday</label>
+                        
                         <input
                             type="checkbox"
                             id="wed"
@@ -567,9 +588,10 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.wed}
                         />
+                        <label htmlFor="W" className="text-white">Wednesday</label>
                     </div>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="Th" className="text-white">Thursday</label>
+                        
                         <input
                             type="checkbox"
                             id="thur"
@@ -578,9 +600,10 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.thur}
                         />
+                        <label htmlFor="Th" className="text-white">Thursday</label>
                     </div>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="Fr" className="text-white">Friday</label>
+                        
                         <input
                             type="checkbox"
                             id="fri"
@@ -589,9 +612,10 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.fri}
                         />
+                        <label htmlFor="Fr" className="text-white">Friday</label>
                     </div>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="Sat" className="text-white">Saturday</label>
+                        
                         <input
                             type="checkbox"
                             id="sat"
@@ -600,9 +624,10 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.sat}
                         />
+                        <label htmlFor="Sat" className="text-white">Saturday</label>
                     </div>
                     <div className="flex items-center gap-x-1">
-                        <label htmlFor="Sun" className="text-white">Sunday</label>
+                        
                         <input
                             type="checkbox"
                             id="sun"
@@ -611,6 +636,7 @@ export default function HHFeedText(){
                             onChange={handleFilterChange}
                             checked={filterData.sun}
                         />
+                        <label htmlFor="Sun" className="text-white">Sunday</label>
                     </div>
                     <div className="flex">
                         <input
@@ -641,10 +667,10 @@ export default function HHFeedText(){
     <div className="w-full max-w-6xl rounded bg-white shadow-xl sm:p-10 mx-auto text-gray-800 relative md:text-left">
         <div className="md:flex items-center -mx-10">
             <div className="flex w-full md:w-1/2 px-10 mb-10 md:mb-0 ">
-                <div className=" h-[150px] w-[150px]  sm:h-[275px] sm:w-[275px]">
+                <div className="">
                     {item.images.length > 0 ? <div className="w-full z-10">
-                        <img src={HeroImage} className="border-4 border-yellow-200"/>
-                    </div>  : <div className="flex items-center justify-center sm:p-3 sm:mx-1 border-black border rounded">No Photo Yet</div>}                           
+                        <img src={item.images[0]} className="h-[275px] w-[275px] border-4 border-yellow-200"/>
+                    </div>  : <div className="w-full relative z-10 h-[275px] w-[275px] border-4 border-yellow-200"><img src={HeroImage}/><div className="absolute inset-0 bg-gray-800 opacity-70"><span className="absolute left-[50%] -ml-[50px] top-[50%] -mt-[20px] text-white z-15">No Photo Yet</span></div></div>}                         
                 </div>
             </div>
             <div className=" text-xl md:w-1/2 px-10">
@@ -747,17 +773,16 @@ export default function HHFeedText(){
                     </div>
                     {/* IMAGE */}
                     {console.log(item.images)}
-                    <div className=" pt-2">
+                    <div className="pt-2 relative">
                         {item.images.length > 0 ? <div className="w-full z-10">
-                            <img src={item.images[0]} className="border-4 border-yellow-200  h-[175px] w-[175px] sm:h-[275px] sm:w-[275px]"/>
-                        </div>  : <div className="flex items-center justify-center h-[175px] w-[175px]  sm:h-[275px] sm:w-[275px] border-black border rounded">No Photo Yet</div>}                           
+                            <img src={item.images[0]} className="border-4 border-yellow-200  h-[175px] w-[175px] "/>
+                        </div>  : <div className="w-full relative z-10 h-[175px] w-[175px] "><img src={HeroImage}/><div className="absolute inset-0 bg-gray-800 opacity-70"><span className="absolute left-[25%] top-[40%] text-white z-15">No Photo Yet</span></div></div>}                           
                     </div>                           
                     </div>
                   
                     {/* MOBILE CONTACT INFO VIEW */}
                     <div className="sm:hidden flex justify-around p-1.5 space-x-0.5 flex-grow">        
 
-                            {/* <span>Contact Info:</span> */}
                                 <button className="btn text-white bg-sky-600 hover:bg-sky-900 w-2/5 sm:w-auto sm:mb-0">Website</button>
                             {authed ? <div className="flex items-center justify-center">{
                             userData.favoritePosts.includes(item._id) ?
