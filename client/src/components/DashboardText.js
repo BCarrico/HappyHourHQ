@@ -143,9 +143,9 @@ export default function DashboardText(){
             <h1 className="sm:hidden text-center text-3xl text-gray-200 border-b-3xl border-b-2 border-gray-600 pb-1 mx-4">Favorites</h1>
 
 {/* Desktop View */}
-<div className="hidden sm:block">
+<div className="hidden sm:flex justify-center">
 {dataHH.map((item, index) => 
-<div className="min-w-full flex items-center p-5 lg:px-10 overflow-hidden relative ">
+<div className="w-3/4 flex items-center p-5 lg:px-10 overflow-hidden relative ">
     <div className="w-full max-w-6xl rounded bg-white shadow-xl sm:p-10 mx-auto text-gray-800 relative md:text-left">
         <div className="md:flex items-center -mx-10">
             <div className="flex w-full md:w-1/2 px-10 mb-10 md:mb-0 ">
