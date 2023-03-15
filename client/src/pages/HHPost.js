@@ -2,9 +2,9 @@ import React from 'react';
 import useAuth from '../auth/useAuth';
 import Header from '../components/Header';
 import { createSearchParams, NavLink, useParams } from 'react-router-dom';
-import HHPostText from '../components/HHPostText';
-import Footer from '../components/Footer';
 
+import Footer from '../components/Footer';
+import HHPost from '../components/HHPostText'
 
 function Dashboard() {
 	const { user } = useAuth();
@@ -14,7 +14,7 @@ function Dashboard() {
 		<div className='flex flex-col min-h-screen bg-gray-800 md:bg-gray-200'>
 			<Header />
 			<div className='flex-grow'>
-				<HHPostText postID = {params}/>
+				<HHPost postID = {params}/>
 			</div>
 			
 			<Footer />
