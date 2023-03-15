@@ -8,7 +8,7 @@ export default function ImageModal (props){
 
 			{/* Put this part before </body> tag */}
 			<input type="checkbox" id="my-modal" className="modal-toggle" />
-			<div className="modal w-full">
+			<div className="modal w-[375px] h-[375px]">
 			    <div className="modal-box max-w-[46rem] w-full">
 			        <div className="carousel w-full bg-gray-500">
                     {props.images.map((item, index) => 

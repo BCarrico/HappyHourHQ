@@ -230,115 +230,7 @@ export default function HHPostText(props){
         
 
             <div>
-                                {/* NAME */}
-                <div className="hidden sm:block">
-                <div className="flex flex-col items-center">
-                    <div className="flex flex-col items-center w-full">
-                        <div className="flex justify-center md:justify-between pt-2 md:w-3/5 text-sm px-4">
-                            {/* ADD REVIEW BUTTON. ONLY IF NO USER REVIEW */}
-                            
-                            {authed?
-                            <div className="flex items-center"> { !dataHH.ratedBy.includes(user._id) ? <button onClick={handleToggleReview} className="md:px-4 md:py-2 md:text-gray-800 text-white uppercase bg-transparent border-2 border-gray-800 dark:text-white hover:bg-gray-800 hover:text-white text-md">Add Review</button> : <div></div>}
-                            </div> : <button className="md:px-4 md:py-2 md:text-gray-800 text-white uppercase bg-transparent border-2 border-gray-800 dark:text-white hover:bg-gray-800 hover:text-white text-md"><Link to="/login">Add Review</Link></button>}
-                            {/* ADD || REMOVE FAVORITE */}
-                            
-                            {authed ? <div>{
-                            userData.favoritePosts.includes(dataHH._id) ?
-                            <div><button action={`${dataHH._id}`} type="submit" onClick={handleRmFavorite} className="px-4 py-2 md:text-gray-800 text-white uppercase bg-transparent border-2 border-gray-800 dark:text-white hover:bg-gray-800 hover:text-white text-md">Remove Favorites <FontAwesomeIcon icon={faStarActive} /></button></div>
-                             : 
-                            <div><button action={`${dataHH._id}`} type="submit" onClick={handleAddToFavorite} className="px-4 py-2 md:text-gray-800 text-white uppercase bg-transparent border-2 border-gray-800 dark:text-white hover:bg-gray-800 hover:text-white text-md">Add To Favorites <FontAwesomeIcon icon={faStarInactive} /></button></div>
-                            }
-                            </div> : <div className="px-4 py-2 md:text-gray-800 text-white uppercase bg-transparent border-2 border-gray-800 dark:text-white hover:bg-gray-800 hover:text-white text-md"><Link to="/login">Add To Favorites <FontAwesomeIcon icon={faStarInactive} /></Link></div>}
-                        
-                        </div>
-                        {/* DISPLAY REVIEWS & IMAGE*/}
-                        <div  className="flex bg-white shadow-xl justify-center  md:rounded-2xl md:w-4/5 md:p-6 flex-wrap md:mt-3 text-white">
-                        
-                        <div className="flex w-1/2 md:mx-3 mt-3 space-y-2">
-                            <div className="flex flex-col">
-                            <h1 className="flex justify-center text-3xl text-white md:text-gray-800 md:text-4xl font-medium mt-3">{dataHH.name}</h1>   
-                            <div className="flex items-center">
-                                <span className="pr-1 items-center text-black">{String(dataHH.ovRatingAvg).length === 1 ? `${dataHH.ovRatingAvg}.0` : dataHH.ovRatingAvg}</span>
-                                <StarRating rating={dataHH.ovRatingAvg} name="Overall" nameStyle="text-xl"/>
-                                <span className="text-sm text-sky-400  pl-1.5">({dataHH.ratedBy.length})</span>
-                            </div>   
-  
-                            <div className="flex items-center">
-                                <span className="pr-1 items-center text-black">{String(dataHH.tasteRatingAvg).length === 1 ? `${dataHH.tasteRatingAvg}.0` : dataHH.tasteRatingAvg}</span>
-                                <StarRating rating={dataHH.tasteRatingAvg} name="Taste" />
-                            </div>
-
-                            <div className="flex items-center text-black">
-                                <span className="pr-1 items-center">{String(dataHH.ambRatingAvg).length === 1 ? `${dataHH.ambRatingAvg}.0` : dataHH.ambRatingAvg}</span>
-                                <StarRating rating={dataHH.ambRatingAvg} name="Ambiance" />
-                            </div>
-                            <div className="flex items-center text-black">
-                                <span className="pr-1 items-center">{String(dataHH.worthRatingAvg).length === 1 ? `${dataHH.worthRatingAvg}.0` : dataHH.worthRatingAvg}</span>
-                                <StarRating rating={dataHH.worthRatingAvg} name="Worth It" />
-                            </div>
-                            <div className="flex items-center text-black">
-                                <span className="pr-1 items-center">{String(dataHH.sizeRatingAvg).length === 1 ? `${dataHH.sizeRatingAvg}.0` : dataHH.sizeRatingAvg}</span>
-                                <StarRating rating={dataHH.sizeRatingAvg} name="Portions" />
-                            </div>
-                            
-                            
-                            <div className="sm:visible invisible star-rating text-black p-1"><HHType drinks={dataHH.drinks} food={dataHH.food}/></div>
-
-                            </div>
-                            </div>
-                            <div>
-                             {authed ? <div>
-                                {dataHH.images[0] !== undefined ? 
-                                    <div className="flex w-full mx-3 md:my-3 relative">
-                                        <label htmlFor="my-modal" className="cursor-pointer"><img src={dataHH.images[0]} className="border-4 border-yellow-200 h-[350px] w-[350px]" alt="Picture of happy hour"/><h5 className="absolute bottom-8 left-1/4 bg-gray-700 bg-opacity-60 p-0.5 w-1/2 text-center hover:bg-opacity-80 ">See All Photos ({dataHH.images.length})</h5></label>
-                                    </div>  
-                                    : 
-                                    <div className="flex items-center justify-center bg-gray-700 border-black border rounded w-64 h-64 my-3 p-1 "><CloudinaryUploadWidget name={props.postID.id} style="text-gray-200" text="Add First Photo!"/></div>} 
-                                </div> 
-                                : 
-                                // NO AUTH
-                                <div>
-                                        {dataHH.images[0] !== undefined ? <div className="flex w-80 h-60 bg-gray-700 bg-opacity-40 mx-3 md:my-3 relative">
-                                        <label htmlFor="my-modal" className="cursor-pointer"><img src={dataHH.images[0]} className="object-scale-down w-80 h-60" alt="Picture of happy hour"/><div className="absolute bottom-8 left-1/4 bg-gray-700 bg-opacity-60 p-0.5 w-1/2 text-center hover:bg-opacity-80 ">See All Photos ({dataHH.images.length})</div></label>
-                                    </div>  
-                                    : 
-                                    <div className="flex items-center justify-center bg-gray-700 border-black border rounded w-64 h-64 my-3 p-1 "><Link to="/login" className="text-gray-200">Add First Photo!</Link></div>}
-                                </div>}
-                            </div>            
-                        </div>
-                        <div className="flex justify-center space-x-4 text-white mt-3 sm:hidden">
-                            <span className="flex justify-center items-center">Drinks {dataHH.drinks ? <FontAwesomeIcon className="pl-1 text-green-400" icon={faCheck}/> : <FontAwesomeIcon className="pl-1.5 text-red-400 text-xs" icon={faX}/>}</span>
-                            <span className="flex justify-center items-center">Food {dataHH.food ? <FontAwesomeIcon className="pl-1 text-green-400" icon={faCheck}/> : <FontAwesomeIcon className="pl-1.5 text-red-400 text-xs" icon={faX}/>}</span>
-                        </div>
-                    </div>
-                    {/* CONTACT INFO */}
-                    <div className="flex flex-col sm:flex-wrap sm:flex-row sm:w-3/5 justify-center gap-2 my-2">
-
-                        <div className="flex flex-col sm:w-1/3 rounded-2xl bg-gray-800 text-white py-2 sm:px-4 md:my-2 mx-1">
-                            <div className="flex justify-center w-64 pb-2 text-lg">Hours</div>
-                            {dataHH.monday && <div>Monday: {handleTime(dataHH.startTime)} - {handleTime(dataHH.endTime)}</div>}
-                            {dataHH.tuesday && <div>Tuesday: {handleTime(dataHH.startTime)} - {handleTime(dataHH.endTime)}</div>}
-                            {dataHH.wednesday && <div>Wednesday: {handleTime(dataHH.startTime)} - {handleTime(dataHH.endTime)}</div>}
-                            {dataHH.thursday && <div>Thursday: {handleTime(dataHH.startTime)} - {handleTime(dataHH.endTime)}</div>}
-                            {dataHH.friday && <div>Friday: {handleTime(dataHH.startTime)} - {handleTime(dataHH.endTime)}</div>}
-                            {dataHH.saturday && <div>Saturday: {handleTime(dataHH.startTime)} - {handleTime(dataHH.endTime)}</div>}
-                            {dataHH.sunday && <div>Sunday: {handleTime(dataHH.startTime)} - {handleTime(dataHH.endTime)}</div>}
-                        </div>
-                        <div className="flex flex-col sm:w-1/3 rounded-2xl bg-gray-800 text-white py-2 md:px-4 md:my-2 w-64">
-                            <span className="self-center pb-2 text-lg">Contact Info</span>
-                            <div className="">{dataHH.address}, <br />{dataHH.city} {dataHH.state} {dataHH.zipcode}</div>
-                            <div><a href={dataHH.website}>Website & Menu</a></div>
-                            <div>{formatPhoneNumber(dataHH.phone)}</div>
-                        </div>
-                    </div>
-                    <ImageModal images={dataHH.images}/>
-                    </div>
-                    </div>
-                
-
-{/* MOBILE VIEW */}
                 {/* NAME */}
-                <div className="sm:hidden">
                 <h1 className="flex justify-center text-3xl text-white md:text-gray-800 md:text-4xl font-medium mt-3">{dataHH.name}</h1>
                 <div className="flex flex-col items-center">
                     <div className="flex flex-col items-center w-full">
@@ -436,7 +328,7 @@ export default function HHPostText(props){
                         </div>
                     </div>
                     <ImageModal images={dataHH.images}/>
-                    </div>
+                    
 
                     {/* ADD REVIEW */}
                    {review !== false &&  
@@ -555,8 +447,9 @@ export default function HHPostText(props){
                 <div className="flex flex-wrap gap-4 m-2 justify-center">
                     <div className="px-4 py-2 md:text-gray-800 text-white uppercase bg-transparent border-2 md:border-gray-800 border-sky-400 dark:text-white hover:bg-gray-800 hover:text-white text-md"><Link to ={`/feed`}>More Happy Hours</Link></div>
                     <div className="px-4 py-2 md:text-gray-800 text-white uppercase bg-transparent border-2 md:border-gray-800 border-sky-400 dark:text-white hover:bg-gray-800 hover:text-white text-md"><Link to ={`/feed`}>Favorites</Link></div>
-                    </div>
-            </div>  
+                </div>
+                </div>
+
         </div>
             
        

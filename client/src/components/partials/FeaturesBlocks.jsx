@@ -1,4 +1,7 @@
 import React from 'react';
+import { faCompass, faCreditCard, faArrowPointer, faClock, faShop } from '@fortawesome/free-solid-svg-icons' 
+import { faStar } from '@fortawesome/free-regular-svg-icons'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 
 function FeaturesBlocks() {
   return (
@@ -21,25 +24,24 @@ function FeaturesBlocks() {
           <div className="max-w-sm mx-auto grid gap-6 md:grid-cols-2 lg:grid-cols-3 items-start md:max-w-2xl lg:max-w-none">
 
             {/* 1st item */}
-            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl min-h-full">
+              <FontAwesomeIcon className="w-14 h-14 pb-2 text-sky-600" icon={faCompass}/>
+              {/* <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fillRule="evenodd">
                   <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
-                  <g strokeWidth="2">
-                    <path className="stroke-current text-blue-300" d="M34.514 35.429l2.057 2.285h8M20.571 26.286h5.715l2.057 2.285" />
-                    <path className="stroke-current text-white" d="M20.571 37.714h5.715L36.57 26.286h8" />
-                    <path className="stroke-current text-blue-300" strokeLinecap="square" d="M41.143 34.286l3.428 3.428-3.428 3.429" />
-                    <path className="stroke-current text-white" strokeLinecap="square" d="M41.143 29.714l3.428-3.428-3.428-3.429" />
+                  <g strokeWidth="1">
+                  <svg  viewBox="0 0 24 24" stroke="white" className="w-6 h-6">   <path strokeLinecap="round" strokeLinejoin="round" d="M12 6v12m-3-2.818l.879.659c1.171.879 3.07.879 4.242 0 1.172-.879 1.172-2.303 0-3.182C13.536 12.219 12.768 12 12 12c-.725 0-1.45-.22-2.003-.659-1.106-.879-1.106-2.303 0-3.182s2.9-.879 4.006 0l.415.33M21 12a9 9 0 11-18 0 9 9 0 0118 0z" /> </svg>
                   </g>
                 </g>
-              </svg>
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Initial Contact</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </svg> */}
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Discover New Places</h4>
+              <p className="text-gray-600 text-center">Whether you're looking for a new spot to grab a drink after work or a place to meet up with friends, Happy Hour HQ can help you explore your options.</p>
             </div>
 
             {/* 2nd item */}
-            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl min-h-full">
+            <FontAwesomeIcon className="w-14 h-14 pb-2 text-sky-600" icon={faCreditCard}/>
+              {/* <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fillRule="evenodd">
                   <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
                   <g strokeWidth="2" transform="translate(19.429 20.571)">
@@ -48,14 +50,15 @@ function FeaturesBlocks() {
                     <path className="stroke-current text-blue-300" d="M16.161 18.406a6.848 6.848 0 003.268-5.835 6.857 6.857 0 00-6.858-6.857 6.857 6.857 0 00-6.857 6.857 6.848 6.848 0 003.268 5.835" />
                   </g>
                 </g>
-              </svg>
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Discovery Session</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </svg> */}
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Save Money</h4>
+              <p className="text-gray-600 text-center">With the ability to sort by location and days open, you can easily find happy hour specials that fit your schedule and budget.</p>
             </div>
 
             {/* 3rd item */}
-            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl min-h-full">
+            <FontAwesomeIcon className="w-14 h-14 pb-2 text-sky-600" icon={faArrowPointer}/>
+              {/* <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fillRule="evenodd">
                   <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
                   <g strokeLinecap="square" strokeWidth="2">
@@ -63,14 +66,15 @@ function FeaturesBlocks() {
                     <path className="stroke-current text-white" d="M19.429 25.143A6.857 6.857 0 0126.286 32v1.189L28 37.143l-1.714.571V40A2.286 2.286 0 0124 42.286h-2.286v2.285M44.571 25.143A6.857 6.857 0 0037.714 32v1.189L36 37.143l1.714.571V40A2.286 2.286 0 0040 42.286h2.286v2.285" />
                   </g>
                 </g>
-              </svg>
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Contracting</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </svg> */}
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Easy to Use</h4>
+              <p className="text-gray-600 text-center">With a clean, intuitive design, you can quickly search for options and filter results based on your preferences to find the happy hour specials you're looking for.</p>
             </div>
 
             {/* 4th item */}
-            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl min-h-full">
+            <FontAwesomeIcon className="w-14 h-14 pb-2 text-sky-600" icon={faClock}/>
+              {/* <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fillRule="evenodd">
                   <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
                   <g transform="translate(22.857 19.429)" strokeWidth="2">
@@ -80,14 +84,15 @@ function FeaturesBlocks() {
                     <circle className="stroke-current text-blue-300" strokeLinecap="square" cx="12.571" cy="12.571" r="3.429" />
                   </g>
                 </g>
-              </svg>              
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Fast Prototyping</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </svg>               */}
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Plan Ahead</h4>
+              <p className="text-gray-600 text-center">Whether you're looking for a spot to meet up with friends or planning a date night. You can search for happy hour specials in advance ensuring that you don't miss out on any great deals.</p>
             </div>
 
             {/* 5th item */}
-            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl min-h-full">
+            <FontAwesomeIcon className="w-14 h-14 pb-2 text-sky-600" icon={faShop}/>
+              {/* <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fillRule="evenodd">
                   <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
                   <g strokeLinecap="square" strokeWidth="2">
@@ -95,14 +100,15 @@ function FeaturesBlocks() {
                     <path className="stroke-current text-blue-300" d="M38.858 26.993l6.397 1.73-4.473 16.549-13.24-3.58" />
                   </g>
                 </g>
-              </svg>
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Design Phase</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </svg> */}
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Stay Local</h4>
+              <p className="text-gray-600 text-center">You can explore options in your neighborhood or venture out to new areas, all while supporting small businesses in your community.</p>
             </div>
 
             {/* 6th item */}
-            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl">
-              <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
+            <div className="relative flex flex-col items-center p-6 bg-white rounded shadow-xl min-h-full">
+            <FontAwesomeIcon className="w-14 h-14 pb-2 text-sky-600" icon={faStar}/>
+              {/* <svg className="w-16 h-16 p-1 -mt-1 mb-2" viewBox="0 0 64 64" xmlns="http://www.w3.org/2000/svg">
                 <g fill="none" fillRule="evenodd">
                   <rect className="fill-current text-blue-600" width="64" height="64" rx="32" />
                   <g strokeWidth="2">
@@ -112,9 +118,9 @@ function FeaturesBlocks() {
                     <path className="stroke-current text-blue-300" d="M21.714 40h4.572M24 37.714v4.572M37.714 24h4.572M40 21.714v4.572" strokeLinecap="square" />
                   </g>
                 </g>
-              </svg>
-              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Develop & Launch</h4>
-              <p className="text-gray-600 text-center">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+              </svg> */}
+              <h4 className="text-xl font-bold leading-snug tracking-tight mb-1">Add Your Own Reviews</h4>
+              <p className="text-gray-600 text-center">Happy Hour HQ allows users to add their own reviews of happy hour spots, enabling them to share their experiences with others and help fellow users find great places to unwind.</p>
             </div>
 
           </div>
@@ -126,8 +132,7 @@ function FeaturesBlocks() {
 
           {/* Section header */}
           <div className="max-w-3xl mx-auto text-center pb-12 md:pb-16 flex flex-col sm:flex-row justify-center items-center gap-2 sm:gap-8">
-            <h1 className="h2">Find Your Next Happy Hour Spot</h1>
-            <a className="btn text-white bg-sky-600 hover:bg-sky-900 w-2/5 sm:w-auto sm:mb-0" href="/feed">Explore Here</a>
+            <h1 className="h2">Find Your Next Happy Hour Spot <a className="text-sky-600 hover:text-sky-900" href="/feed">Here</a></h1>
           </div>
         </div>
       </div>

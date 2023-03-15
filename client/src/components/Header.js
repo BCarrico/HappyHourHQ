@@ -83,12 +83,12 @@ React.useEffect(() => {
                     
                   </Popover.Group>
                   <div className="hidden items-center justify-end md:flex md:flex-1 lg:w-0">
-                    <Link to="/signin"className="whitespace-nowrap text-lg font-medium text-white hover:text-gray-900">
+                    <Link to="/signin"className="whitespace-nowrap rounded text-lg font-medium text-white hover:text-gray-900">
                       Sign in
                     </Link>
                     <Link
                       to="/signup"
-                      className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md bg-green-400 px-4 py-2 font-medium text-gray-700 shadow-sm hover:bg-gray-200"
+                      className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md bg-sky-600 px-4 py-2 font-medium text-white shadow-sm hover:bg-sky-900"
                     >
                       Sign up
                     </Link>
@@ -199,7 +199,7 @@ React.useEffect(() => {
 
                               <button onClick={handleLogout}
                                 
-                                className="ml-8 inline-flex items-center justify-center whitespace-nowrap bg-green-400 px-4 py-2 font-medium text-gray-700 shadow-sm hover:bg-gray-300"
+                                className="ml-8 inline-flex items-center justify-center whitespace-nowrap rounded-md bg-sky-600 px-4 py-2 font-medium text-white shadow-sm hover:bg-sky-900"
                               >
                                 Sign Out
                               </button>
@@ -254,7 +254,7 @@ React.useEffect(() => {
 
                                 <div>
                                   <button type="button" onClick={handleLogout}
-                                    className="flex w-full items-center justify-center bg-green-400 px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-300"
+                                    className="flex w-full items-center  justify-center bg-green-400 px-4 py-2 text-base font-medium text-gray-700 shadow-sm hover:bg-gray-300"
                                   >
                                     Sign Out
                                   </button>
