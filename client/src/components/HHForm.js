@@ -125,7 +125,7 @@ export default function HHForm() {
                         placeholder="Street Address"
                         onChange={handleChange}
                         name="address"
-                        value={formData.address}
+                        value={formData.name}
                         required
                     />
                     <input className="input input-bordered w-full max-w-xs"
